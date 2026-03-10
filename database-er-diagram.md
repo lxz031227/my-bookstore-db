@@ -6,12 +6,12 @@ erDiagram
         varchar password
         timestamp created_at
     }
-    
+
     CATEGORIES {
         int category_id PK
         varchar category_name
     }
-    
+
     USERS {
         int user_id PK
         varchar username UK
@@ -20,7 +20,7 @@ erDiagram
         timestamp created_at
         varchar avatar
     }
-    
+
     BOOKS {
         int book_id PK
         varchar title
@@ -32,14 +32,14 @@ erDiagram
         int view_count
         timestamp created_at
     }
-    
+
     FAVORITES {
         int favorite_id PK
         int user_id FK
         int book_id FK
         timestamp created_at
     }
-    
+
     RATINGS {
         int rating_id PK
         int user_id FK
@@ -48,15 +48,15 @@ erDiagram
         text review
         timestamp created_at
     }
-    
+
     USER_TAG_PREFERENCES {
         int pref_id PK
         int user_id FK
         int category_id FK
         tinyint preference_level
     }
-    
-    %% Relationships
+
+    %% 定义关系
     CATEGORIES ||--o{ BOOKS : "拥有图书"
     USERS ||--o{ FAVORITES : "创建收藏"
     BOOKS ||--o{ FAVORITES : "被收藏"
